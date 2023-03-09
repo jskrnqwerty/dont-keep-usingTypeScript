@@ -1,46 +1,163 @@
-# Getting Started with Create React App
+<h1 style="text-align: center;"> Don't Keep</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A note taking app for people who take notes and never come back to them again.
+---
 
-## Available Scripts
+# Install dependencies
 
-In the project directory, you can run:
+Install [Create React App](https://create-react-app.dev/ "create-react-app.dev")<br>
+`npx create-react-app dont-keep --template typescript`<br>
+`cd dont-keep`
 
-### `npm start`
+Install [React Router DOM](https://reactrouter.com/ "reactrouter.com")<br>
+`npm install react-router-dom@6`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install [Material UI component library](https://mui.com/ "mui.com")<br>
+`npm install @mui/material @emotion/react @emotion/styled @mui/icons-material`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Install [UUID](https://www.npmjs.com/package/uuid/ "www.npmjs.com/package/uuid")<br>
+`npm install uuid`
 
-### `npm test`
+Install [UseAnimations](https://react.useanimations.com/ "react.useanimations.com")<br>
+`npm install -S react-useanimations`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# The Interface
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## The interface is divided into three areas:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  1. *Header Bar* - horizontal, always on top
+  2. *Drawer* - vertical, on the left
+  3. *Display Area* - adjacent to Drawer, on the right
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Header Bar
+The Header Bar contains three components:
+* *Menu Button* - to toggle Drawer
+* *Heading* text - which updates with current location inside the app
+* *Delete All* button - to delete all notes and reset app data.
 
-### `npm run eject`
+## Drawer
+Drawer contains the navigation menu with icons and names.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Drawer has two states:
+* *Closed* - shows menu icons only
+* *Open* - shows icons and names
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Drawer open state has it's own two states:
+* *Permanently open* - toggled by the Menu Button in Header Bar.
+* *Temporarily open* - toggled by moving mouse cursor over and away from Drawer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Display Area
+* Display Area contains the notes data with respect to the current location selection in Drawer
+* Notes are displayed in grid arrangement
+* Each note shows action buttons on hover
+* Action buttons vary with each location
+* Notes are moved between different locations using actions buttons
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Features:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Overview
+* Create new notes
+* Notes are saved in grid arrangement
+* Grid is responsive
+* Change notes order by **dragging and dropping** notes
+* **Hover** on a saved note in notes grid to show action buttons
+* Actions buttons vary with location inside the app
+* Click to expand note and edit note data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Note actions using buttons:
+The following actions can be performed on each note:
+* Pin note
+* Unpin note
+* Archive note
+* Unarchive note
+* Delete note
+* Restore note
+* Delete note forever
+
+## Other note actions
+* Open note
+* Edit note
+* Save changes
+* Change note position inside grid
+
+
+# The flow inside the app + App features
+ The following is the structure of the component tree between whom the notes data flows and is dsplayed in the *Display Area*:
+* *Notes* (root)
+  * *Create Note*
+  * *Pinned Notes*
+  * *Other Notes*
+* *Archive*
+* *Bin*
+
+## Create and save a new note
+* *Notes* is the root component.
+* Click on the *CreateNote* component inside the *Notes* to expand and show note title field.
+* Add text input to note title and note info fields.
+* Save the note with a click anywhere outside the *CreateNote* component.
+* New notes are saved and displayed inside the *Notes* component by default, added to the front of the grid.
+
+## Inside Notes
+*Notes* component may contain two note grids:
+* One is for *Pinned Notes*.
+* The other is for *Other Notes*.
+>Each grid exists only when it contains atleast 1 note.
+
+### Inside *Pinned Notes*:
+Pinned Notes note actions available:
+* Unpin note - moves note to *Other Notes* grid below.
+* Archive note - moves note to *Archive*.
+* Delete note - moves note to *Bin*.
+
+### Inside *Other Notes*:
+Other Notes note actions available:
+* Pin note - moves note to the *Pinned Notes* grid on top.
+* Archive note - moves note to *Archive*
+* Delete note - moves note to *Bin*
+
+Perform the following actions on any note inside *Notes*:
+* Click note to open in modal.
+* Edit note data within modal.
+* Click Close button, click outside modal window area or use Escape key to close note modal window.
+* Note data updates on close.
+
+## Inside Archive:
+*Archive* component contains a single note grid
+* All notes are unpinned.
+
+
+Archive note actions:
+* *Pin note* - moves the note to the front of *Pinned Notes* grid inside *Notes*.
+* *Unarchive note* - moves the note to front of *Other Notes* grid inside *Notes*.
+* *Delete note* - moves the note to *Bin* 
+
+## Inside Bin:
+*Bin* component contains a single note grid:
+* All notes are unpinned.
+
+*Bin* note actions available:
+* *Delete Forever* - Deletes the note permanently.
+* *Restore note* - moves the note to front of *Other Notes* grid in *Notes*.
+
+
+# Note-actions Distribution
+
+|                  | Pinned Notes | Other Notes | Archive | Bin |
+| -                | -            | -           | -       | -   |
+| Open note        | ✔           | ✔           | ✔      | ✔   |
+| Edit note        | ✔           | ✔           | ✔      | ✘   |
+| Rearrange notes  | ✘           | ✔           | ✘      | ✘   |
+| Pin note         | ✔           | ✔           | ✔      | ✘   |
+| Archive note     | ✔           | ✔           | ✘      | ✘   |
+| Unrchive note    | ✘           | ✘           | ✔      | ✘   |
+| Delete note      | ✔           | ✔           | ✔      | ✘   |
+| Restore note     | ✘           | ✘           | ✘      | ✔   |
+| Delete Forever   | ✘           | ✘           | ✘      | ✔   |
+|                  |              |             |         |     |
+
+
+>Note
+
+> In this documentation, the words in *italics* correspond to the component and variable names used in the code. 
