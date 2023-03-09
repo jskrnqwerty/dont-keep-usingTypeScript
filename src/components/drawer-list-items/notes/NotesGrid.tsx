@@ -1,8 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { NotesDataContext } from "../../context/NotesDataContextProvider";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
-// import EmptyNotesTemplate from "../../templates/EmptyNotesTemplate";
-// import NoteCardTemplate from "../../templates/NoteCardTemplate";
 import NoteCardTemplate from "../../common/templates/NoteCardTemplate";
 import EmptyNotesTemplate from "../../common/templates/EmptyNotesTemplate";
 import { NoteType } from "../../common/types/types";
@@ -20,9 +18,7 @@ const NotesGrid = () => {
 
   // useEffect stops the setNotes from rendering infinitely
   useEffect(() => {
-    console.log("useEffect triggered");
     setNotes(duplicateNotes);
-    console.log("notes", notes);
   }, [duplicateNotes]);
 
   const handleSort = () => {
@@ -35,11 +31,11 @@ const NotesGrid = () => {
       );
 
       const _notes = [...notes];
-      console.log("---1 ", _notes);
+      // console.log("---1 ", _notes);
       const draggedItem = _notes.splice(dragItemIndex, 1)[0];
-      console.log("---2 ", _notes, draggedItem);
+      // console.log("---2 ", _notes, draggedItem);
       _notes.splice(dragOverItemIndex, 0, draggedItem);
-      console.log("---3 ", _notes);
+      // console.log("---3 ", _notes);
       setDuplicateNotes(_notes);
 
       // by using useRef hook instead of useState
@@ -72,10 +68,6 @@ const NotesGrid = () => {
     >
       {notes.length > 0 ? (
         notes.map((notesItem, index) => (
-          // <NotesGridItem
-          //   notesItem={notesItem}
-          //   index={index}
-          // />
           <Grid2
             // item
             draggable

@@ -16,8 +16,7 @@ const UnarchiveNoteButton = ({ notesItem }: UnarchiveNoteButtonPropsType) => {
   } = useContext(NotesDataContext);
 
   const handleUnarchiveButton = (notesItem: NoteType) => {
-    notesItem.currList = "notes";
-    notesItem.currDest = "notes";
+    notesItem.location = "notes";
     console.log(notesItem);
 
     setNotes((prev) => [notesItem, ...prev]);

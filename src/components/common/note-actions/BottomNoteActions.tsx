@@ -4,11 +4,11 @@ import UnarchiveNoteButton from "./UnarchiveNoteButton";
 import DeleteForeverNoteButton from "./DeleteForeverNoteButton";
 import RestoreNoteButton from "./RestoreNoteButton";
 import DeleteNoteButton from "./DeleteNoteButton";
-import { destinationOptions, NoteType } from "../types/types";
+import { Location, NoteType } from "../types/types";
 
 type BottomNoteActionsPropsType = {
   notesItem: NoteType,
-  displayIn: destinationOptions,
+  displayIn: Location,
   isNoteHover: boolean,
   isNoteOpen: boolean,
 }
@@ -32,31 +32,30 @@ const BottomNoteActions = ({
       }}
     >
       {/* // NotesNoteCard */}
-      {/* {destination === destinationOptions.notes && ( */}
-      {notesItem.currDest === "notes" && (
+      {notesItem.location === "notes" && (
         <ArchiveNoteButton notesItem={notesItem} />
       )}
-      {notesItem.currDest === "notes" && (
+      {notesItem.location === "notes" && (
         <DeleteNoteButton
           notesItem={notesItem}
           displayIn={displayIn}
         />
       )}
       {/* // ArchivedNoteCard */}
-      {notesItem.currDest === "archive" && (
+      {notesItem.location === "archive" && (
         <UnarchiveNoteButton notesItem={notesItem} />
       )}
-      {notesItem.currDest === "archive" && (
+      {notesItem.location === "archive" && (
         <DeleteNoteButton
           notesItem={notesItem}
           displayIn={displayIn}
         />
       )}
       {/* // DeletedNoteCard */}
-      {notesItem.currDest === "bin" && (
+      {notesItem.location === "bin" && (
         <DeleteForeverNoteButton notesItem={notesItem} />
       )}
-      {notesItem.currDest === "bin" && (
+      {notesItem.location === "bin" && (
         <RestoreNoteButton notesItem={notesItem} />
       )}
     </CardActions>

@@ -31,8 +31,7 @@ const NotesDataContextProvider = ({ children }: NotesDataContextProviderPropsTyp
     id: uuid(),
     title: noteTitle,
     info: noteInfo,
-    currList: "",
-    currDest: "",
+    location: "",
     isNotePinned: false,
   };
   

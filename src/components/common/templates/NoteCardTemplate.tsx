@@ -3,11 +3,11 @@ import { Typography, Card, CardContent, CardActions } from "@mui/material";
 import OpenNoteWindow from "../open-note-window/OpenNoteWindow";
 import PinNoteButton from "../note-actions/PinNoteButton";
 import BottomNoteActions from "../note-actions/BottomNoteActions";
-import { NoteType, destinationOptions } from "../types/types";
+import { NoteType, Location } from "../types/types";
 
 type NoteCardTemplateProps = {
   notesItem: NoteType,
-  displayIn: destinationOptions,
+  displayIn: Location,
 };
 
 // props.displayIn prop takes in notes, reminders, edit-labels, archive, bin
@@ -20,8 +20,14 @@ const NoteCardTemplate = ({ notesItem, displayIn }: NoteCardTemplateProps) => {
       {console.log("NoteCardTemplate returned")}
       <Card
         // CardActions visible on hover
-        onMouseEnter={() => setIsNoteHover(true)}
-        onMouseLeave={() => setIsNoteHover(false)}
+        onMouseEnter={() => {
+          setIsNoteHover(true)
+          console.log("isNoteHover = true")
+        }}
+        onMouseLeave={() => {
+          setIsNoteHover(false)
+          console.log("isNoteHover = false")
+        }}
         onClick={() => console.log("Card clicked")}
         sx={{
           maxHeight: "100%",

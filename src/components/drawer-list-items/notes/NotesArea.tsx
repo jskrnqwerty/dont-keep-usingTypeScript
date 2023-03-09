@@ -3,7 +3,7 @@ import { NotesDataContext } from "../../context/NotesDataContextProvider";
 import { Box } from "@mui/material";
 import PinnedNotes from "./pinned-notes/PinnedNotes";
 import OtherNotesGridHeading from "./grid-headings/OtherNotesGridHeading";
-import NotesGrid from "./NotesGrid.jsx";
+import NotesGrid from "./NotesGrid";
 
 const NotesArea = () => {
   const { pinnedNotes } = useContext(NotesDataContext);

@@ -1,11 +1,10 @@
-export type listOptions = `` | `notes` | `pinned` | `unpinned` | `editLabels`  | `archive` | `bin`;
-export type destinationOptions = `` | `notes` | `reminders` | `editLabels` | `archive` | `bin`;
+// export type listOptions = `` | `pinned` | `notPinned`;
+export type Location = `` | `notes` | `reminders` | `editLabels` | `archive` | `bin`;
 export type NoteType = {
   id: string,
   title: string,
   info: string,
-  currList: listOptions,
-  currDest: destinationOptions,
+  location: Location,
   isNotePinned: boolean,
 };
 

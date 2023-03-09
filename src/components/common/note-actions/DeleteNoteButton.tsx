@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { NotesDataContext } from "../../context/NotesDataContextProvider";
 import { Tooltip, IconButton } from "@mui/material";
 import { DeleteOutline as DeleteIcon } from "@mui/icons-material";
-import { destinationOptions, NoteType, listOptions } from "../types/types";
+import { Location, NoteType } from "../types/types";
 
 type DeleteNoteButtonPropsType = {
   notesItem: NoteType,
-  displayIn: destinationOptions,
+  displayIn: Location,
 };
 
 const DeleteNoteButton = ({ notesItem, displayIn }: DeleteNoteButtonPropsType) => {
@@ -21,8 +21,7 @@ const DeleteNoteButton = ({ notesItem, displayIn }: DeleteNoteButtonPropsType) =
   } = useContext(NotesDataContext);
 
   const handleDeleteButtonInNotes = (notesItem: NoteType) => {
-    notesItem.currList = "bin";
-    notesItem.currDest = "bin";
+    notesItem.location = "bin";
     console.log(notesItem);
 
     setDeletedNotes((prev) => [notesItem, ...prev]);
@@ -43,9 +42,8 @@ const DeleteNoteButton = ({ notesItem, displayIn }: DeleteNoteButtonPropsType) =
   };
 
   const handleDeleteButtonInArchive = (notesItem: NoteType) => {
-    // update currList and currDest inside notesItem
-    notesItem.currList = "bin";
-    notesItem.currDest = "bin";
+    // update  currDest inside notesItem
+    notesItem.location = "bin";
     console.log(notesItem);
 
     setDeletedNotes((prev) => [notesItem, ...prev]);

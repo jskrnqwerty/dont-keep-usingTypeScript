@@ -20,8 +20,7 @@ const CreateNote = () => {
   const handleClickAway = () => {
     setShowTitle(false);
     if (noteTitle || noteInfo) {
-      note.currList = "notes";
-      note.currDest = "notes";
+      note.location = "notes";
       let updatedNote = [note, ...notes]
       setNotes(updatedNote);
       resetInputFields();

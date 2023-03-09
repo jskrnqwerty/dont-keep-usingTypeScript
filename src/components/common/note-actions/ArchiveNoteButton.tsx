@@ -18,9 +18,8 @@ const ArchiveNoteButton = ({ notesItem }: ArchiveNoteButtonPropsType) => {
   } = useContext(NotesDataContext);
 
   const handleArchiveButton = (notesItem: NoteType) => {
-    // update currList and currDest inside notesItem
-    notesItem.currList = "archive";
-    notesItem.currDest = "archive";
+    // update currDest inside notesItem
+    notesItem.location = "archive";
     setArchivedNotes((prev) => [notesItem, ...prev]);
     if (!notesItem.isNotePinned) {
       removeFromNotes(notesItem);
@@ -43,10 +42,7 @@ const ArchiveNoteButton = ({ notesItem }: ArchiveNoteButtonPropsType) => {
   return (
     <Tooltip title="Archive">
       <IconButton
-        onClick={() => {
-          console.log("notesItem.currList: ", notesItem.currList);
-          handleArchiveButton(notesItem);
-        }}
+        onClick={() => handleArchiveButton(notesItem)}
       >
         <ArchiveIcon fontSize="small" />
       </IconButton>

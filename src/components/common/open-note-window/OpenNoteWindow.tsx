@@ -7,13 +7,13 @@ import {
   Button,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { destinationOptions, NoteType } from "../types/types";
+import { Location, NoteType } from "../types/types";
 
 type OpenNoteWindowPropsType = {
   notesItem: NoteType,
   isNoteOpen: boolean,
   setIsNoteOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  displayIn: destinationOptions
+  displayIn: Location
 }
 
 const OpenNoteWindow = ({
@@ -21,9 +21,9 @@ const OpenNoteWindow = ({
   isNoteOpen,
   setIsNoteOpen,
   displayIn,
-}: OpenNoteWindowPropsType ) => {
-  const noteTitleRef = useRef(null);
-  const noteInfoRef = useRef(null);
+}: OpenNoteWindowPropsType ): React.ReactElement => {
+  const noteTitleRef = useRef<HTMLInputElement>(null!);
+  const noteInfoRef = useRef<HTMLInputElement>(null!);
 
   const handleClose = () => {
     setIsNoteOpen(false);
@@ -75,7 +75,7 @@ const OpenNoteWindow = ({
               {notesItem.title}
             </DialogContentText>
             <DialogContentText
-              autoFocus
+              // autoFocus
               ref={noteInfoRef}
               contentEditable={
                 displayIn !== "bin" ? true : false

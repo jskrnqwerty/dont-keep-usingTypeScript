@@ -16,8 +16,7 @@ const RestoreNoteButton = ({ notesItem }: RestoreNoteButtonPropsType) => {
   } = useContext(NotesDataContext);
 
   const handleRestoreButton = (notesItem: NoteType) => {
-    notesItem.currList = "notes";
-    notesItem.currDest = "notes";
+    notesItem.location = "notes";
     console.log(notesItem);
 
     setNotes((prev) => [notesItem, ...prev]);

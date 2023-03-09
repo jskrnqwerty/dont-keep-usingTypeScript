@@ -6,10 +6,10 @@ import {
   ArchiveOutlined as ArchiveIcon,
   DeleteOutline as DeleteIcon,
 } from "@mui/icons-material";
-import { destinationOptions } from "../types/types";
+import { Location } from "../types/types";
 
 type EmptyNotesTemplatePropsType = {
-  displayIn: destinationOptions,
+  displayIn: Location,
 }
 
 const EmptyNotesTemplate = ({ displayIn }: EmptyNotesTemplatePropsType) => {
