@@ -1,3 +1,5 @@
+- --
+
 <h1 style="text-align: center;"> Don't Keep</h1>
 
 > A note taking app for people who take notes and never come back to them again.
@@ -22,6 +24,35 @@ Install [UseAnimations](https://react.useanimations.com/ "react.useanimations.co
 `npm install -S react-useanimations`
 
 
+---
+# Using the app
+## Quick Overview
+* Create new notes
+* Notes get displayed in a responsive grid arrangement
+* Rearrange notes with **drag and drop**
+* **Hover** over saved note grid to show note-action buttons
+* Actions buttons vary with location inside the app
+* Click to expand note and edit note data
+* All notes data is stored locally using *localStorage*, and is fetched automatically during next session.
+
+## Note actions using buttons:
+The following actions can be performed on each note:
+* Pin note
+* Unpin note
+* Archive note
+* Unarchive note
+* Delete note
+* Restore note
+* Delete note forever
+
+## Other note actions
+* Open note
+* Edit note
+* Save changes
+* Change note position inside grid
+
+
+---
 # The Interface
 
 ## The interface is divided into three areas:
@@ -55,35 +86,10 @@ The Drawer open state has it's own two states:
 * Notes are moved between different locations using actions buttons
 
 
-# Features:
-
-## Overview
-* Create new notes
-* Notes are saved in grid arrangement
-* Grid is responsive
-* Change notes order by **dragging and dropping** notes
-* **Hover** on a saved note in notes grid to show action buttons
-* Actions buttons vary with location inside the app
-* Click to expand note and edit note data
-
-## Note actions using buttons:
-The following actions can be performed on each note:
-* Pin note
-* Unpin note
-* Archive note
-* Unarchive note
-* Delete note
-* Restore note
-* Delete note forever
-
-## Other note actions
-* Open note
-* Edit note
-* Save changes
-* Change note position inside grid
 
 
-# The flow inside the app + App features
+---
+# Component-Tree Structure + App features
  The following is the structure of the component tree between whom the notes data flows and is dsplayed in the *Display Area*:
 * *Notes* (root)
   * *Create Note*
@@ -141,23 +147,22 @@ Archive note actions:
 * *Delete Forever* - Deletes the note permanently.
 * *Restore note* - moves the note to front of *Other Notes* grid in *Notes*.
 
-
+---
 # Note-actions Distribution
 
-|                  | Pinned Notes | Other Notes | Archive | Bin |
+| Note Action      | Pinned Notes | Other Notes | Archive | Bin |
 | -                | -            | -           | -       | -   |
-| Open note        | ✔           | ✔           | ✔      | ✔   |
-| Edit note        | ✔           | ✔           | ✔      | ✘   |
-| Rearrange notes  | ✘           | ✔           | ✘      | ✘   |
-| Pin note         | ✔           | ✔           | ✔      | ✘   |
-| Archive note     | ✔           | ✔           | ✘      | ✘   |
-| Unrchive note    | ✘           | ✘           | ✔      | ✘   |
-| Delete note      | ✔           | ✔           | ✔      | ✘   |
-| Restore note     | ✘           | ✘           | ✘      | ✔   |
-| Delete Forever   | ✘           | ✘           | ✘      | ✔   |
-|                  |              |             |         |     |
+| Open note        | ✓           | ✓           | ✓      | ✓   |
+| Edit note        | ✓           | ✓           | ✓      | ✗   |
+| Rearrange notes  | ✗           | ✓           | ✗      | ✗   |
+| Pin note         | ✓           | ✓           | ✓      | ✗   |
+| Archive note     | ✓           | ✓           | ✗      | ✗   |
+| Unrchive note    | ✗           | ✗           | ✓      | ✗   |
+| Delete note      | ✓           | ✓           | ✓      | ✗   |
+| Restore note     | ✗           | ✗           | ✗      | ✓   |
+| Delete Forever   | ✗           | ✗           | ✗      | ✓   |
 
-
->Note
+---
+# Extra Info
 
 > In this documentation, the words in *italics* correspond to the component and variable names used in the code. 
