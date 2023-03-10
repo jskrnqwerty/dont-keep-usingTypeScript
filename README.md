@@ -2,7 +2,9 @@
 
 <h1 style="text-align: center;"> Don't Keep</h1>
 
+
 > A note taking app for people who take notes and never come back to them again.
+###### Created with [React.js](https://reactjs.org/ "reactjs.org"), [TypeScript](https://www.typescriptlang.org/ "www.typescriptlang.org"), [Material UI](https://mui.com/ "mui.com").
 ---
 
 # Install dependencies
