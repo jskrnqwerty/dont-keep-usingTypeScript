@@ -25,6 +25,10 @@ Install [UUID](https://www.npmjs.com/package/uuid/ "www.npmjs.com/package/uuid")
 Install [UseAnimations](https://react.useanimations.com/ "react.useanimations.com")<br>
 `npm install -S react-useanimations`
 
+Install [TypeDoc](https://typedoc.org/ "typedoc.org")<br>
+`npm install --save-dev typedoc`<br>
+`npx typedoc src/index.ts`
+
 
 ---
 # Using the app
@@ -163,6 +167,11 @@ Archive note actions:
 | Delete note      | ✓           | ✓           | ✓      | ✗   |
 | Restore note     | ✗           | ✗           | ✗      | ✓   |
 | Delete Forever   | ✗           | ✗           | ✗      | ✓   |
+
+
+---
+# Life Cycle of a Note
+![Note life cycle flow chart](https://imgur.com/ubYxqiD.png)
 
 ---
 # Extra Info

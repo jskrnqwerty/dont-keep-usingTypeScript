@@ -13,6 +13,7 @@ import EditLabels from "./display-area/edit-labels/EditLabels";
 import ArchivedNotes from "./display-area/archived-notes/ArchivedNotes";
 import DeletedNotes from "./display-area/deleted-notes/DeletedNotes";
 
+
 const Home = () => {
   const { open } = useContext(DrawerStateContext);
   return (

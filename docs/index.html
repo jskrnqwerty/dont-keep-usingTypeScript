@@ -1,0 +1,342 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>google-keep-clone-app-typescript</title><meta name="description" content="Documentation for google-keep-clone-app-typescript"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">google-keep-clone-app-typescript</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>google-keep-clone-app-typescript</h2></div>
+<div class="tsd-panel tsd-typography"><hr>
+<h1 style="text-align: center;"> Don't Keep</h1>
+
+
+<blockquote>
+<p>A note taking app for people who take notes and never come back to them again.</p>
+</blockquote>
+
+<a href="#created-with-reactjs-typescript-material-ui" id="created-with-reactjs-typescript-material-ui" style="color: inherit; text-decoration: none;">
+  <h6>Created with <a href="https://reactjs.org/" title="reactjs.org">React.js</a>, <a href="https://www.typescriptlang.org/" title="www.typescriptlang.org">TypeScript</a>, <a href="https://mui.com/" title="mui.com">Material UI</a>.</h6>
+</a>
+<hr>
+
+<a href="#install-dependencies" id="install-dependencies" style="color: inherit; text-decoration: none;">
+  <h1>Install dependencies</h1>
+</a>
+<p>Install <a href="https://create-react-app.dev/" title="create-react-app.dev">Create React App</a><br>
+<code>npx create-react-app dont-keep --template typescript</code><br>
+<code>cd dont-keep</code></p>
+<p>Install <a href="https://reactrouter.com/" title="reactrouter.com">React Router DOM</a><br>
+<code>npm install react-router-dom@6</code></p>
+<p>Install <a href="https://mui.com/" title="mui.com">Material UI component library</a><br>
+<code>npm install @mui/material @emotion/react @emotion/styled @mui/icons-material</code></p>
+<p>Install <a href="https://www.npmjs.com/package/uuid/" title="www.npmjs.com/package/uuid">UUID</a><br>
+<code>npm install uuid</code></p>
+<p>Install <a href="https://react.useanimations.com/" title="react.useanimations.com">UseAnimations</a><br>
+<code>npm install -S react-useanimations</code></p>
+<p>Install <a href="https://typedoc.org/" title="typedoc.org">TypeDoc</a><br>
+<code>npm install --save-dev typedoc</code><br>
+<code>npx typedoc src/index.ts</code></p>
+<hr>
+
+<a href="#using-the-app" id="using-the-app" style="color: inherit; text-decoration: none;">
+  <h1>Using the app</h1>
+</a>
+
+<a href="#quick-overview" id="quick-overview" style="color: inherit; text-decoration: none;">
+  <h2>Quick Overview</h2>
+</a>
+<ul>
+<li>Create new notes</li>
+<li>Notes get displayed in a responsive grid arrangement</li>
+<li>Rearrange notes with <strong>drag and drop</strong></li>
+<li><strong>Hover</strong> over saved note grid to show note-action buttons</li>
+<li>Actions buttons vary with location inside the app</li>
+<li>Click to expand note and edit note data</li>
+<li>All notes data is stored locally using <em>localStorage</em>, and is fetched automatically during next session.</li>
+</ul>
+
+<a href="#note-actions-using-buttons" id="note-actions-using-buttons" style="color: inherit; text-decoration: none;">
+  <h2>Note actions using buttons:</h2>
+</a>
+<p>The following actions can be performed on each note:</p>
+<ul>
+<li>Pin note</li>
+<li>Unpin note</li>
+<li>Archive note</li>
+<li>Unarchive note</li>
+<li>Delete note</li>
+<li>Restore note</li>
+<li>Delete note forever</li>
+</ul>
+
+<a href="#other-note-actions" id="other-note-actions" style="color: inherit; text-decoration: none;">
+  <h2>Other note actions</h2>
+</a>
+<ul>
+<li>Open note</li>
+<li>Edit note</li>
+<li>Save changes</li>
+<li>Change note position inside grid</li>
+</ul>
+<hr>
+
+<a href="#the-interface" id="the-interface" style="color: inherit; text-decoration: none;">
+  <h1>The Interface</h1>
+</a>
+
+<a href="#the-interface-is-divided-into-three-areas" id="the-interface-is-divided-into-three-areas" style="color: inherit; text-decoration: none;">
+  <h2>The interface is divided into three areas:</h2>
+</a>
+<ol>
+<li><em>Header Bar</em> - horizontal, always on top</li>
+<li><em>Drawer</em> - vertical, on the left</li>
+<li><em>Display Area</em> - adjacent to Drawer, on the right</li>
+</ol>
+
+<a href="#header-bar" id="header-bar" style="color: inherit; text-decoration: none;">
+  <h2>Header Bar</h2>
+</a>
+<p>The Header Bar contains three components:</p>
+<ul>
+<li><em>Menu Button</em> - to toggle Drawer</li>
+<li><em>Heading</em> text - which updates with current location inside the app</li>
+<li><em>Delete All</em> button - to delete all notes and reset app data.</li>
+</ul>
+
+<a href="#drawer" id="drawer" style="color: inherit; text-decoration: none;">
+  <h2>Drawer</h2>
+</a>
+<p>Drawer contains the navigation menu with icons and names.</p>
+<p>Drawer has two states:</p>
+<ul>
+<li><em>Closed</em> - shows menu icons only</li>
+<li><em>Open</em> - shows icons and names</li>
+</ul>
+<p>The Drawer open state has it&#39;s own two states:</p>
+<ul>
+<li><em>Permanently open</em> - toggled by the Menu Button in Header Bar.</li>
+<li><em>Temporarily open</em> - toggled by moving mouse cursor over and away from Drawer.</li>
+</ul>
+
+<a href="#display-area" id="display-area" style="color: inherit; text-decoration: none;">
+  <h2>Display Area</h2>
+</a>
+<ul>
+<li>Display Area contains the notes data with respect to the current location selection in Drawer</li>
+<li>Notes are displayed in grid arrangement</li>
+<li>Each note shows action buttons on hover</li>
+<li>Action buttons vary with each location</li>
+<li>Notes are moved between different locations using actions buttons</li>
+</ul>
+<hr>
+
+<a href="#component-tree-structure--app-features" id="component-tree-structure--app-features" style="color: inherit; text-decoration: none;">
+  <h1>Component-Tree Structure + App features</h1>
+</a>
+<p> The following is the structure of the component tree between whom the notes data flows and is dsplayed in the <em>Display Area</em>:</p>
+<ul>
+<li><em>Notes</em> (root)<ul>
+<li><em>Create Note</em></li>
+<li><em>Pinned Notes</em></li>
+<li><em>Other Notes</em></li>
+</ul>
+</li>
+<li><em>Archive</em></li>
+<li><em>Bin</em></li>
+</ul>
+
+<a href="#create-and-save-a-new-note" id="create-and-save-a-new-note" style="color: inherit; text-decoration: none;">
+  <h2>Create and save a new note</h2>
+</a>
+<ul>
+<li><em>Notes</em> is the root component.</li>
+<li>Click on the <em>CreateNote</em> component inside the <em>Notes</em> to expand and show note title field.</li>
+<li>Add text input to note title and note info fields.</li>
+<li>Save the note with a click anywhere outside the <em>CreateNote</em> component.</li>
+<li>New notes are saved and displayed inside the <em>Notes</em> component by default, added to the front of the grid.</li>
+</ul>
+
+<a href="#inside-notes" id="inside-notes" style="color: inherit; text-decoration: none;">
+  <h2>Inside Notes</h2>
+</a>
+<p><em>Notes</em> component may contain two note grids:</p>
+<ul>
+<li>One is for <em>Pinned Notes</em>.</li>
+<li>The other is for <em>Other Notes</em>.<blockquote>
+<p>Each grid exists only when it contains atleast 1 note.</p>
+</blockquote>
+</li>
+</ul>
+
+<a href="#inside-pinned-notes" id="inside-pinned-notes" style="color: inherit; text-decoration: none;">
+  <h3>Inside <em>Pinned Notes</em>:</h3>
+</a>
+<p>Pinned Notes note actions available:</p>
+<ul>
+<li>Unpin note - moves note to <em>Other Notes</em> grid below.</li>
+<li>Archive note - moves note to <em>Archive</em>.</li>
+<li>Delete note - moves note to <em>Bin</em>.</li>
+</ul>
+
+<a href="#inside-other-notes" id="inside-other-notes" style="color: inherit; text-decoration: none;">
+  <h3>Inside <em>Other Notes</em>:</h3>
+</a>
+<p>Other Notes note actions available:</p>
+<ul>
+<li>Pin note - moves note to the <em>Pinned Notes</em> grid on top.</li>
+<li>Archive note - moves note to <em>Archive</em></li>
+<li>Delete note - moves note to <em>Bin</em></li>
+</ul>
+<p>Perform the following actions on any note inside <em>Notes</em>:</p>
+<ul>
+<li>Click note to open in modal.</li>
+<li>Edit note data within modal.</li>
+<li>Click Close button, click outside modal window area or use Escape key to close note modal window.</li>
+<li>Note data updates on close.</li>
+</ul>
+
+<a href="#inside-archive" id="inside-archive" style="color: inherit; text-decoration: none;">
+  <h2>Inside Archive:</h2>
+</a>
+<p><em>Archive</em> component contains a single note grid</p>
+<ul>
+<li>All notes are unpinned.</li>
+</ul>
+<p>Archive note actions:</p>
+<ul>
+<li><em>Pin note</em> - moves the note to the front of <em>Pinned Notes</em> grid inside <em>Notes</em>.</li>
+<li><em>Unarchive note</em> - moves the note to front of <em>Other Notes</em> grid inside <em>Notes</em>.</li>
+<li><em>Delete note</em> - moves the note to <em>Bin</em></li>
+</ul>
+
+<a href="#inside-bin" id="inside-bin" style="color: inherit; text-decoration: none;">
+  <h2>Inside Bin:</h2>
+</a>
+<p><em>Bin</em> component contains a single note grid:</p>
+<ul>
+<li>All notes are unpinned.</li>
+</ul>
+<p><em>Bin</em> note actions available:</p>
+<ul>
+<li><em>Delete Forever</em> - Deletes the note permanently.</li>
+<li><em>Restore note</em> - moves the note to front of <em>Other Notes</em> grid in <em>Notes</em>.</li>
+</ul>
+<hr>
+
+<a href="#note-actions-distribution" id="note-actions-distribution" style="color: inherit; text-decoration: none;">
+  <h1>Note-actions Distribution</h1>
+</a>
+<table>
+<thead>
+<tr>
+<th>Note Action</th>
+<th>Pinned Notes</th>
+<th>Other Notes</th>
+<th>Archive</th>
+<th>Bin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Open note</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Edit note</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Rearrange notes</td>
+<td>✗</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Pin note</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Archive note</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Unrchive note</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Delete note</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Restore note</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Delete Forever</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<hr>
+
+<a href="#extra-info" id="extra-info" style="color: inherit; text-decoration: none;">
+  <h1>Extra Info</h1>
+</a>
+<blockquote>
+<p>In this documentation, the words in <em>italics</em> correspond to the component and variable names used in the code.</p>
+</blockquote>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">google-<wbr/>keep-<wbr/>clone-<wbr/>app-<wbr/>typescript</a>
+<ul></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky"></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>
