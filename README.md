@@ -171,7 +171,7 @@ Archive note actions:
 
 ---
 # Life Cycle of a Note
-![Note life cycle flow chart](https://imgur.com/ubYxqiD.png)
+![Note Life Cycle Flowchart: https://imgur.com/ubYxqiD.png](https://imgur.com/ubYxqiD.png)
 
 ---
 # Extra Info

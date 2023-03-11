@@ -49,6 +49,9 @@ const DrawerStyled = styled(MuiDrawer, {
   }),
 }));
 
+/**
+ * 
+ */
 const Drawer = () => {
   // handles drawer status which is then used by the HeaderBar sitting at <Home />
   const { open } = useContext(DrawerStateContext);

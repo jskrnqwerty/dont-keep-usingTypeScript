@@ -8,6 +8,9 @@ type ArchiveNoteButtonPropsType = {
   notesItem: NoteType
 }
 
+/**
+ * 
+ */
 const ArchiveNoteButton = ({ notesItem }: ArchiveNoteButtonPropsType) => {
   const {
     notes,

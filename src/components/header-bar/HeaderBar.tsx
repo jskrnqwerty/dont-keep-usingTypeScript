@@ -21,6 +21,9 @@ const HeaderBarStyled = styled(MuiAppBar)`
   z-index: 1201;
 `;
 
+/**
+ * 
+ */
 const HeaderBar = () => {
   const [isDeleteAll, setIsDeleteAll] = useState(false);
   return (

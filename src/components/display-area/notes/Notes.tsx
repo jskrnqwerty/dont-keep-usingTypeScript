@@ -2,6 +2,9 @@ import { Box } from "@mui/material";
 import CreateNote from "./CreateNote";
 import NotesArea from "./NotesArea";
 
+/**
+ * 
+ */
 const Notes = () => {
   return (
     <Box
