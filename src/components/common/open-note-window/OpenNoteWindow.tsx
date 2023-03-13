@@ -1,14 +1,14 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import {
   Dialog,
   DialogContent,
   DialogContentText,
   DialogActions,
   Button,
-  TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Location, NoteType } from "../types/types";
+import { NotesDataContext } from "../../context/NotesDataContextProvider";
 
 type OpenNoteWindowPropsType = {
   notesItem: NoteType;
@@ -25,11 +25,23 @@ const OpenNoteWindow = ({
 }: OpenNoteWindowPropsType): React.ReactElement => {
   const noteTitleRef = useRef<HTMLInputElement>(null!);
   const noteInfoRef = useRef<HTMLInputElement>(null!);
+  const { notes, setNotes } = useContext(NotesDataContext);
 
   const handleClose = () => {
     setIsNoteOpen(false);
     notesItem.title = noteTitleRef.current.innerText;
     notesItem.info = noteInfoRef.current.innerText;
+
+    //update the note in notes[]
+    let _notes = [...notes];
+    _notes.map((item) => {
+      if (item.id === notesItem.id) {
+        item.title = notesItem.title;
+        item.info = notesItem.info;
+      }
+      return _notes;
+    });
+    setNotes(_notes);
   };
 
   return (
@@ -57,24 +69,6 @@ const OpenNoteWindow = ({
               width: "100%",
             }}
           >
-            {/* <TextField
-              multiline
-              ref={noteTitleRef}
-              defaultValue={notesItem.title}
-              contentEditable={displayIn === "bin" ? false : true}
-              sx={{
-                px: "1rem",
-                pt: "0.8rem",
-                pb: "0.5rem",
-
-                fontSize: "1.3rem",
-                color: "black",
-                lineHeight: "1.8rem",
-                outline: "none",
-              }}
-            >
-              {notesItem.title}
-            </TextField> */}
             <DialogContentText
               ref={noteTitleRef}
               contentEditable={displayIn === "bin" ? false : true}
