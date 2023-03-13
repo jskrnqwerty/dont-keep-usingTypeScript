@@ -6,8 +6,8 @@ import BottomNoteActions from "../note-actions/BottomNoteActions";
 import { NoteType, Location } from "../types/types";
 
 type NoteCardTemplateProps = {
-  notesItem: NoteType,
-  displayIn: Location,
+  notesItem: NoteType;
+  displayIn: Location;
 };
 
 // props.displayIn prop takes in notes, reminders, edit-labels, archive, bin
@@ -21,12 +21,12 @@ const NoteCardTemplate = ({ notesItem, displayIn }: NoteCardTemplateProps) => {
       <Card
         // CardActions visible on hover
         onMouseEnter={() => {
-          setIsNoteHover(true)
-          console.log("isNoteHover = true")
+          setIsNoteHover(true);
+          console.log("isNoteHover = true");
         }}
         onMouseLeave={() => {
-          setIsNoteHover(false)
-          console.log("isNoteHover = false")
+          setIsNoteHover(false);
+          console.log("isNoteHover = false");
         }}
         onClick={() => console.log("Card clicked")}
         sx={{
@@ -39,8 +39,7 @@ const NoteCardTemplate = ({ notesItem, displayIn }: NoteCardTemplateProps) => {
           },
         }}
       >
-        {(displayIn === "notes" ||
-          displayIn === "archive") && (
+        {(displayIn === "notes" || displayIn === "archive") && (
           <CardActions
             sx={{
               display: "inline-block",

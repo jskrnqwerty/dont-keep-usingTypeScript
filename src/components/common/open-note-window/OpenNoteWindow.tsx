@@ -5,23 +5,24 @@ import {
   DialogContentText,
   DialogActions,
   Button,
+  TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Location, NoteType } from "../types/types";
 
 type OpenNoteWindowPropsType = {
-  notesItem: NoteType,
-  isNoteOpen: boolean,
-  setIsNoteOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  displayIn: Location
-}
+  notesItem: NoteType;
+  isNoteOpen: boolean;
+  setIsNoteOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  displayIn: Location;
+};
 
 const OpenNoteWindow = ({
   notesItem,
   isNoteOpen,
   setIsNoteOpen,
   displayIn,
-}: OpenNoteWindowPropsType ): React.ReactElement => {
+}: OpenNoteWindowPropsType): React.ReactElement => {
   const noteTitleRef = useRef<HTMLInputElement>(null!);
   const noteInfoRef = useRef<HTMLInputElement>(null!);
 
@@ -56,11 +57,11 @@ const OpenNoteWindow = ({
               width: "100%",
             }}
           >
-            <DialogContentText
+            {/* <TextField
+              multiline
               ref={noteTitleRef}
-              contentEditable={
-                displayIn === "bin" ? false : true
-              }
+              defaultValue={notesItem.title}
+              contentEditable={displayIn === "bin" ? false : true}
               sx={{
                 px: "1rem",
                 pt: "0.8rem",
@@ -73,18 +74,37 @@ const OpenNoteWindow = ({
               }}
             >
               {notesItem.title}
+            </TextField> */}
+            <DialogContentText
+              ref={noteTitleRef}
+              contentEditable={displayIn === "bin" ? false : true}
+              sx={{
+                px: "1rem",
+                pt: "0.8rem",
+                pb: "0.5rem",
+                fontSize: "1.3rem",
+                color: "black",
+                lineHeight: "1.8rem",
+                outline: "none",
+                wordwrap: "break-word",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
+              }}
+            >
+              {notesItem.title}
             </DialogContentText>
             <DialogContentText
               // autoFocus
               ref={noteInfoRef}
-              contentEditable={
-                displayIn !== "bin" ? true : false
-              }
+              contentEditable={displayIn !== "bin" ? true : false}
               sx={{
                 px: "1rem",
                 py: "0.2rem",
                 color: "black",
                 outline: "none",
+                wordwrap: "break-word",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
               }}
             >
               {notesItem.info}
