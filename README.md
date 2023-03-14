@@ -7,6 +7,12 @@
 ###### Created with [React.js](https://reactjs.org/ "reactjs.org"), [TypeScript](https://www.typescriptlang.org/ "www.typescriptlang.org"), [Material UI](https://mui.com/ "mui.com").
 ---
 
+# App Demo
+Complete app demo
+![Dont Keep - Demo](./screenshots/08-complete-app-demo.gif)
+
+
+---
 # Install dependencies
 
 Install [Create React App](https://create-react-app.dev/ "create-react-app.dev")<br>
