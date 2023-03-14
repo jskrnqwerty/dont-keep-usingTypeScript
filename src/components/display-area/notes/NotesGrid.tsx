@@ -6,8 +6,7 @@ import EmptyNotesTemplate from "../../common/templates/EmptyNotesTemplate";
 import { NoteType } from "../../common/types/types";
 
 const NotesGrid = () => {
-  const { notes, setNotes, pinnedNotes } =
-    useContext(NotesDataContext);
+  const { notes, setNotes, pinnedNotes } = useContext(NotesDataContext);
   // need duplicate notes so we can get the manipulated notes out of handleSort
   // and access them through function scope inside useEffect hook
   const [duplicateNotes, setDuplicateNotes] = useState<NoteType[]>([...notes]);
