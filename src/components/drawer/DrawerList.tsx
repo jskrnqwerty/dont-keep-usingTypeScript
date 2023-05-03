@@ -23,22 +23,28 @@ enum Name {
   home = "Keep",
 }
 enum Route {
-  notes = "/",
+  notes = "/dont-keep-usingTypeScript",
   reminders = "/reminders",
   editLabels = "/edit-labels",
   archive = "/archive",
   bin = "/bin",
 }
 type DrawerMenuType = {
-  id: number,
-  name: Name,
-  icon: React.ReactNode,
-  route: Route,
-  headerText: Name,
+  id: number;
+  name: Name;
+  icon: React.ReactNode;
+  route: Route;
+  headerText: Name;
 };
 
 const drawerMenu: DrawerMenuType[] = [
-  { id: 1, name: Name.notes, icon: <NotesIcon />, route: Route.notes, headerText: Name.home },
+  {
+    id: 1,
+    name: Name.notes,
+    icon: <NotesIcon />,
+    route: Route.notes,
+    headerText: Name.home,
+  },
   {
     id: 2,
     name: Name.reminders,

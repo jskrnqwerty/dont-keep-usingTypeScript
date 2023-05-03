@@ -14,7 +14,7 @@ import ArchivedNotes from "./display-area/archived-notes/ArchivedNotes";
 import DeletedNotes from "./display-area/deleted-notes/DeletedNotes";
 
 /**
- * 
+ *
  */
 const Home = () => {
   const { open } = useContext(DrawerStateContext);
@@ -30,7 +30,7 @@ const Home = () => {
         <Drawer />
         <Routes>
           <Route
-            path="/"
+            path="/dont-keep-usingTypeScript"
             element={<Notes />}
           />
           <Route

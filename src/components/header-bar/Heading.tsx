@@ -6,13 +6,13 @@ import { HeadingType } from "../common/types/types";
 const Heading = () => {
   const location = useLocation();
   const headings: HeadingType[] = [
-    { pathname: "/", headingText: "Don't Keep" },
+    { pathname: "/dont-keep-usingTypeScript", headingText: "Don't Keep" },
     { pathname: "/reminders", headingText: "Reminders" },
     { pathname: "/edit-labels", headingText: "Edit labels" },
     { pathname: "/archive", headingText: "Archive" },
     { pathname: "/bin", headingText: "Bin" },
   ];
-  
+
   return (
     <>
       {headings.map((headingsItem, index) =>
@@ -23,7 +23,7 @@ const Heading = () => {
             flexDirection="row"
             alignItems="center"
           >
-            {headingsItem.pathname === "/" && (
+            {headingsItem.pathname === "/dont-keep-usingTypeScript" && (
               <img
                 src={logo}
                 height="38px"

@@ -18,7 +18,7 @@ const NotesGrid = () => {
   // useEffect stops the setNotes from rendering infinitely
   useEffect(() => {
     setNotes(duplicateNotes);
-  }, [duplicateNotes]);
+  }, [duplicateNotes, setNotes]);
 
   const handleSort = () => {
     if (dragItemIndex !== null) {
