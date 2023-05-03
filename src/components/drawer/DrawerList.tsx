@@ -13,6 +13,7 @@ import {
 } from "@mui/icons-material";
 import { useContext } from "react";
 import { DrawerStateContext } from "../context/DrawerStateProvider";
+import { RoutesEnum } from "../common/types/types";
 
 enum Name {
   notes = "Notes",
@@ -22,18 +23,18 @@ enum Name {
   bin = "Bin",
   home = "Keep",
 }
-enum Route {
-  notes = "/dont-keep-usingTypeScript",
-  reminders = "/reminders",
-  editLabels = "/edit-labels",
-  archive = "/archive",
-  bin = "/bin",
-}
+// enum Route {
+//   notes = "/dont-keep-usingTypeScript/",
+//   reminders = "/reminders",
+//   editLabels = "/edit-labels",
+//   archive = "/archive",
+//   bin = "/bin",
+// }
 type DrawerMenuType = {
   id: number;
   name: Name;
   icon: React.ReactNode;
-  route: Route;
+  route: RoutesEnum;
   headerText: Name;
 };
 
@@ -42,35 +43,35 @@ const drawerMenu: DrawerMenuType[] = [
     id: 1,
     name: Name.notes,
     icon: <NotesIcon />,
-    route: Route.notes,
+    route: RoutesEnum.notes,
     headerText: Name.home,
   },
   {
     id: 2,
     name: Name.reminders,
     icon: <RemindersIcon />,
-    route: Route.reminders,
+    route: RoutesEnum.reminders,
     headerText: Name.reminders,
   },
   {
     id: 3,
     name: Name.editLabels,
     icon: <EditLabelsIcon />,
-    route: Route.editLabels,
+    route: RoutesEnum.editLabels,
     headerText: Name.editLabels,
   },
   {
     id: 4,
     name: Name.archive,
     icon: <ArchiveIcon />,
-    route: Route.archive,
+    route: RoutesEnum.archive,
     headerText: Name.archive,
   },
   {
     id: 5,
     name: Name.bin,
     icon: <DeleteIcon />,
-    route: Route.bin,
+    route: RoutesEnum.bin,
     headerText: Name.bin,
   },
 ];

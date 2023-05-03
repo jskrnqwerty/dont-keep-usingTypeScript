@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 import logo from "../images/dont-keep-icon.png";
-import { HeadingType } from "../common/types/types";
+import { HeadingType, RoutesEnum } from "../common/types/types";
 
 const Heading = () => {
   const location = useLocation();
   const headings: HeadingType[] = [
-    { pathname: "/dont-keep-usingTypeScript", headingText: "Don't Keep" },
+    { pathname: "/dont-keep-usingTypeScript/", headingText: "Don't Keep" },
     { pathname: "/reminders", headingText: "Reminders" },
     { pathname: "/edit-labels", headingText: "Edit labels" },
     { pathname: "/archive", headingText: "Archive" },
@@ -23,7 +23,7 @@ const Heading = () => {
             flexDirection="row"
             alignItems="center"
           >
-            {headingsItem.pathname === "/dont-keep-usingTypeScript" && (
+            {headingsItem.pathname === RoutesEnum.notes && (
               <img
                 src={logo}
                 height="38px"

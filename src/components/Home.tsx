@@ -12,7 +12,7 @@ import Reminders from "./display-area/reminders/Reminders";
 import EditLabels from "./display-area/edit-labels/EditLabels";
 import ArchivedNotes from "./display-area/archived-notes/ArchivedNotes";
 import DeletedNotes from "./display-area/deleted-notes/DeletedNotes";
-
+import { RoutesEnum } from "./common/types/types";
 /**
  *
  */
@@ -30,23 +30,23 @@ const Home = () => {
         <Drawer />
         <Routes>
           <Route
-            path="/dont-keep-usingTypeScript"
+            path={RoutesEnum.notes}
             element={<Notes />}
           />
           <Route
-            path="/reminders"
+            path={RoutesEnum.reminders}
             element={<Reminders />}
           />
           <Route
-            path="/edit-labels"
+            path={RoutesEnum.editLabels}
             element={<EditLabels />}
           />
           <Route
-            path="/archive"
+            path={RoutesEnum.archive}
             element={<ArchivedNotes />}
           />
           <Route
-            path="/bin"
+            path={RoutesEnum.bin}
             element={<DeletedNotes />}
           />
         </Routes>

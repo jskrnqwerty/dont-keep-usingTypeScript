@@ -15,7 +15,7 @@ export type NoteType = {
 };
 
 export type Pathname =
-  | `/dont-keep-usingTypeScript`
+  | `/dont-keep-usingTypeScript/`
   | `/reminders`
   | `/edit-labels`
   | `/archive`
@@ -30,3 +30,11 @@ export type HeadingType = {
   pathname: Pathname;
   headingText: HeadingText;
 };
+
+export enum RoutesEnum {
+  notes = "/dont-keep-usingTypeScript/",
+  reminders = "/reminders",
+  editLabels = "/edit-labels",
+  archive = "/archive",
+  bin = "/bin",
+}
