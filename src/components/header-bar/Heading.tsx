@@ -5,6 +5,8 @@ import { HeadingType, RoutesEnum } from "../common/types/types";
 
 const Heading = () => {
   const location = useLocation();
+  console.log("location: ", location);
+
   const headings: HeadingType[] = [
     { pathname: RoutesEnum.notes, headingText: "Don't Keep" },
     { pathname: RoutesEnum.reminders, headingText: "Reminders" },
@@ -16,7 +18,8 @@ const Heading = () => {
   return (
     <>
       {headings.map((headingsItem, index) =>
-        headingsItem.pathname === location.pathname ? (
+        location.pathname === headingsItem.pathname ||
+        location.pathname === `${headingsItem.pathname}/` ? (
           <Box
             key={index}
             display="flex"
