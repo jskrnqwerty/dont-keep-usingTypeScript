@@ -6,11 +6,11 @@ import { HeadingType, RoutesEnum } from "../common/types/types";
 const Heading = () => {
   const location = useLocation();
   const headings: HeadingType[] = [
-    { pathname: "/dont-keep-usingTypeScript/", headingText: "Don't Keep" },
-    { pathname: "/reminders", headingText: "Reminders" },
-    { pathname: "/edit-labels", headingText: "Edit labels" },
-    { pathname: "/archive", headingText: "Archive" },
-    { pathname: "/bin", headingText: "Bin" },
+    { pathname: RoutesEnum.notes, headingText: "Don't Keep" },
+    { pathname: RoutesEnum.reminders, headingText: "Reminders" },
+    { pathname: RoutesEnum.editLabels, headingText: "Edit labels" },
+    { pathname: RoutesEnum.archive, headingText: "Archive" },
+    { pathname: RoutesEnum.bin, headingText: "Bin" },
   ];
 
   return (

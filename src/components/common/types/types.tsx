@@ -14,12 +14,12 @@ export type NoteType = {
   isNotePinned: boolean;
 };
 
-export type Pathname =
-  | `/dont-keep-usingTypeScript/`
-  | `/reminders`
-  | `/edit-labels`
-  | `/archive`
-  | `/bin`;
+// export type Pathname =
+//   | `/dont-keep-usingTypeScript/`
+//   | `/reminders`
+//   | `/edit-labels`
+//   | `/archive`
+//   | `/bin`;
 export type HeadingText =
   | `Don't Keep`
   | `Reminders`
@@ -27,12 +27,12 @@ export type HeadingText =
   | `Archive`
   | `Bin`;
 export type HeadingType = {
-  pathname: Pathname;
+  pathname: RoutesEnum;
   headingText: HeadingText;
 };
 
 export enum RoutesEnum {
-  notes = "/dont-keep-usingTypeScript/",
+  notes = "/dont-keep-usingTypeScript",
   reminders = "/reminders",
   editLabels = "/edit-labels",
   archive = "/archive",
